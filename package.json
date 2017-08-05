@@ -1,0 +1,19 @@
+{
+  "name": "jsonreaderbot",
+  "version": "1.0.0",
+  "description": "jsonreaderbot - a bot to catch json data parse and iterate to telegram channels/groups",
+  "main": "jsonreaderbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohsenkhanpour/jsonreaderbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohsenkhanpour/jsonreaderbot/issues"
+  },
+  "homepage": "https://github.com/mohsenkhanpour/jsonreaderbot#readme"
+}
