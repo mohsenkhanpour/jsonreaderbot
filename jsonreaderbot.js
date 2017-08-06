@@ -1,29 +1,27 @@
-const TeleBot = require('telebot');
 
-const bot = new TeleBot({
-    token: 'TELEGRAM_BOT_TOKEN',
-    polling: { 
-        interval: 1000, 
-        timeout: 0, 
-        limit: 100, 
-        retryTimeout: 5000, 
-    });
+const TeleBot = require('telebot');
+const bot = new TeleBot('416270540:AAGGc8-9Y5Q8hhsPR0Xw6l47_g89YsGqny0');
+ 
 
 var request = require("request");
-
 var options = { method: 'GET',
   url: 'https://newsapi.org/v1/articles',
   qs: 
    { source: 'techcrunch',
      apiKey: '5b25d3f23e714329b10bf74a3b8c4847' },
-  headers: 
-   { 'postman-token': '93cdcb0e-1a50-4414-85d2-662bd83016fc',
-     'cache-control': 'no-cache' } };
+   json: true};
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
-
+  var source = body.articles[0].title
   console.log(body);
+  bot.sendMessage(-242559392, source);
 });
+
+
+	bot.start();
 	
-	
+
+bot.on('text', (msg) => {
+	console.log(msg)
+	msg.reply.text(msg.text)});
