@@ -1,27 +1,37 @@
-
+require('dotenv').config()
 const TeleBot = require('telebot');
-const bot = new TeleBot('416270540:AAGGc8-9Y5Q8hhsPR0Xw6l47_g89YsGqny0');
- 
+const bot = new TeleBot(process.env.BOT_TOKEN);
 
 var request = require("request");
 var options = { method: 'GET',
   url: 'https://newsapi.org/v1/articles',
   qs: 
-   { source: 'techcrunch',
+   { source: 'bbc-news',
+	 sortBy: 'top',
      apiKey: '5b25d3f23e714329b10bf74a3b8c4847' },
    json: true};
 
+
+	
+	bot.start();
+
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
-  var source = body.articles[0].title
+  
+  var source = body.source
+  var title = body.articles[0].title
+  var urlToImage = body.articles[0].urlToImage
+  var url =  body.articles[0].url
+  var summary = body.articles[0].description
   console.log(body);
-  bot.sendMessage(-242559392, source);
+  
+  bot.sendMessage(-242559392," (<b>${title}</b>  + ${ summary } +  ${ url } )" , {parseMode: 'html', disable_web_page_preview: false , webPreview: urlToImage});
+  
+
 });
 
 
-	bot.start();
+
+
 	
 
-bot.on('text', (msg) => {
-	console.log(msg)
-	msg.reply.text(msg.text)});
