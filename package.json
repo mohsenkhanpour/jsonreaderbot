@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mohsenkhanpour/jsonreaderbot/issues"
   },
-  "homepage": "https://github.com/mohsenkhanpour/jsonreaderbot#readme"
+  "homepage": "https://github.com/mohsenkhanpour/jsonreaderbot#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0"
+  }
 }
