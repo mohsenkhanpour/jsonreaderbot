@@ -8,7 +8,7 @@ var options = { method: 'GET',
   qs: 
    { source: 'bbc-news',
 	 sortBy: 'top',
-     apiKey: '5b25d3f23e714329b10bf74a3b8c4847' },
+     apiKey: process.env.NEWSAPI },
    json: true};
 
 
